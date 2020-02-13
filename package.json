@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/rolandeke/chinedum_portfolio#readme",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "nodemailer": "^6.4.2"
   }
 }
