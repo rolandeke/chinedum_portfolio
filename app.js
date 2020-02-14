@@ -39,10 +39,16 @@ app.get("/contact", (req, res) => {
 app.post('/contact', (req,res) => {
     const {name,email,message} = req.body
     var transporter = nodemailer.createTransport({
-      service: "gmail",
+      host: "smtp.gmail.com",
+      port: 465,
+      secure: true,
       auth: {
         user: process.env.EMAIL,
         pass: process.env.PASS
+      },
+      tls: {
+        // do not fail on invalid certs
+        rejectUnauthorized: false
       }
     });
     const mailOptions = {
