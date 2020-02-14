@@ -59,7 +59,7 @@ app.post('/contact', (req,res) => {
           `There was an error sending your message please try again. Thank you`
         );
         res.redirect("/contact");
-        //console.log(err);
+        console.log(err);
       } 
       else{
         req.flash('success', `Dear ${name}, your message was sent successfully.I will get back to you as soon as possible, Thank you!`)
