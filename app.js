@@ -53,22 +53,22 @@ app.post('/contact', (req,res) => {
     });
     const mailOptions = {
       from: process.env.EMAIL,
-      to: process.env.TO, 
-      subject: "New Mail From Your Portfolio", 
-      html: `Sender: ${name} <br> Email: ${email} <br> <p>${message}</p>` 
+      to: process.env.TO,
+      subject: "New Mail From Your Portfolio",
+      html: `<h4>Sender: ${name}</h4><br> <h4>Email: ${email} </h4><br> <h5>${message}</h5>`,
     };
 
     transporter.sendMail(mailOptions, function(err, info) {
       if (err){
         req.flash(
           "error",
-          `There was an error sending your message please try again. Thank you`
+          `There was an error sending your message please try again. Thank you!`
         );
         res.redirect("/contact");
         console.log(err);
       } 
       else{
-        req.flash('success', `Dear ${name}, your message was sent successfully.I will get back to you as soon as possible, Thank you!`)
+        req.flash('success', `Dear ${name}, your message was sent successfully.I will get back to you as soon as possible, Thank you for reaching out.`)
         res.redirect('/contact')
         //console.log(info);
       } 
