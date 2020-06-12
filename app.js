@@ -1,11 +1,13 @@
 require('dotenv').config()
 const express = require('express')
 const nodemailer = require('nodemailer');
+const helmet     = require('helmet')
 var expressLayouts = require("express-ejs-layouts");
 const session = require('express-session')
 const flash = require('express-flash')
 const app = express()
 
+app.use(helmet())
 app.set("view engine", "ejs");
 app.use(expressLayouts);
 app.use(express.static(`${__dirname}/public`));
@@ -20,20 +22,20 @@ app.use(session({
 app.use(flash())
 
 app.get('/', (req,res) => {
-    res.render('index')
+    res.render("index", { title: "Home" });
 })
 
 
 app.get("/resume", (req, res) => {
-  res.render("resume");
+  res.render("resume", { title: "Resume" });
 });
 app.get("/portfolio", (req, res) => {
-  res.render("portfolio");
+  res.render("portfolio", { title: "Portfolio" });
 });
 
 
 app.get("/contact", (req, res) => {
-  res.render("contact");
+  res.render("contact",{title:"Contact"});
 });
 
 app.post('/contact', (req,res) => {
