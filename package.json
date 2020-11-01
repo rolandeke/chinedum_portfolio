@@ -2,9 +2,10 @@
   "name": "chinedumportfolio",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "dev": "lite-server app.js"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,8 @@
     "nodemailer": "^6.4.2"
   },
   "devDependencies": {
+    "lite-server": "^2.5.4",
     "nodemon": "^2.0.2"
   }
 }
+
